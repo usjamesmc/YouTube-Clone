@@ -5,7 +5,11 @@ from replies.models import Reply
 
 
 class User(AbstractUser):
-    name = models.CharField(max_length=30)
+    username = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    password = models.CharField(max_length=30)
+    email = models.CharField(max_length=30)
     comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
     reply = models.ForeignKey(Reply, on_delete=models.CASCADE)
     

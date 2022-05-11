@@ -8,7 +8,7 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'name', 'comment', 'reply']
+        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'comment', 'reply']
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -36,7 +36,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         # If added new columns through the User model, add them in the fields
         # list as seen below
         fields = ('username', 'password', 'email',
-                  'first_name', 'last_name',)
+                  'first_name', 'last_name', 'comment', 'reply')
 
     def create(self, validated_data):
 
