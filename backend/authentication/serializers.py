@@ -8,7 +8,10 @@ from .models import User
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'comment', 'reply']
+        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'comment', 'comment_id' 'reply', 'reply_id']
+        depth = 1
+        comment_id = serializers.IntegerField(write_only = True)
+        reply_id = serializers.IntegerField(write_only = True)
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
@@ -31,20 +34,19 @@ class RegistrationSerializer(serializers.ModelSerializer):
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
 
-    class Meta:
-        model = User
-        # If added new columns through the User model, add them in the fields
-        # list as seen below
-        fields = ('username', 'password', 'email',
-                  'first_name', 'last_name', 'comment', 'reply')
 
     def create(self, validated_data):
 
         user = User.objects.create(
             username=validated_data['username'],
-            email=validated_data['email'],
+            password=validated_data['password'],
             first_name=validated_data['first_name'],
             last_name=validated_data['last_name'],
+            email=validated_data['email'],
+            comment=validated_data['comment'],
+            comment_id=validated_data['comment_id'],
+            reply=validated_data['reply'],
+            reply_id=validated_data['reply_id'],
 
             # If added new columns through the User model, add them in this
             # create method. Example below:
