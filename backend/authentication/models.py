@@ -1,9 +1,15 @@
-# from django.db import models
+from django.db import models
 from django.contrib.auth.models import AbstractUser
+from comments.models import Comment
+from replies.models import Reply
 
 
 class User(AbstractUser):
-    pass
+    name = models.CharField(max_length=30)
+    comment = models.ForeignKey(Comment, on_delete=models.CASCADE)
+    reply = models.ForeignKey(Reply, on_delete=models.CASCADE)
+    
+
     '''
     This is a custom version of the built in User class
     It contains all of the built in fields and functionality of the standard User
