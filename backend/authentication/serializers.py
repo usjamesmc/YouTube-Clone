@@ -5,14 +5,6 @@ from django.contrib.auth.password_validation import validate_password
 from .models import User
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ['id', 'username', 'password', 'email', 'first_name', 'last_name', 'comment', 'comment_id' 'reply', 'reply_id']
-        depth = 1
-        comment_id = serializers.IntegerField(write_only = True)
-        reply_id = serializers.IntegerField(write_only = True)
-
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
     @classmethod
     def get_token(cls, user):
