@@ -7,10 +7,11 @@ from .serializers import ReplySerializer
 
 @api_view(['GET'])
 @permission_classes([AllowAny])
-def get_all_replies(id):
-    replies = Reply.objects.filter(comment_id=id)
-    serializer = ReplySerializer(replies, many=True)
-    return Response(serializer.data, status=status.HTTP_200_OK)
+def get_all_replies(request, pk):
+    if request.method == 'GET':
+        replies = Reply.objects.filter(comment_id=pk)
+        serializer = ReplySerializer(replies, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

@@ -19,11 +19,19 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    
     email = serializers.EmailField(required=True, validators=[
                                    UniqueValidator(queryset=User.objects.all())])
 
     password = serializers.CharField(
         write_only=True, required=True, validators=[validate_password])
+
+    class Meta:
+        model = User
+        # If added new columns through the User model, add them in the fields
+        # list as seen below
+        fields = ('username', 'password', 'email',
+                  'first_name', 'last_name', 'comment', 'reply')
 
 
     def create(self, validated_data):
