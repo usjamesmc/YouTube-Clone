@@ -14,7 +14,7 @@ def get_all_comments(request, id):
         serializer = CommentSerializer(comments, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-@api_view(['POST'])
+@api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def user_comments(request):
     print(
@@ -25,10 +25,15 @@ def user_comments(request):
             serializer.save(user=request.user)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    elif request.method == 'GET':
+        comments = Comment.objects.filter(user_id=request.user.id)
+        serializer = CommentSerializer(comments, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+  
 
 @api_view(['PUT'])
 @permission_classes([IsAuthenticated])
-def alter_comments(request, pk):
+def update_comments(request, pk):
     print(
     'User ', f"{request.user.id} {request.user.email} {request.user.username}")
     comment = get_object_or_404(Comment, pk=pk)
