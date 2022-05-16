@@ -5,5 +5,5 @@ urlpatterns = [
 
     path('<id>/', views.get_all_comments),
     path('', views.user_comments),
-    path('<pk>/update/', views.update_comments),
+    path('update/<int:pk>/', views.update_comments),
 ]
