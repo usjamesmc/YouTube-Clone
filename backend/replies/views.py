@@ -16,10 +16,9 @@ def get_all_replies(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def user_reply(request):
-    'Comment ', f"{request.comment.id}"
     if request.method == 'POST':
         serializer = ReplySerializer(data=request.data)
         if serializer.is_valid():
             serializer.save(comment=request.comment)
             return Response(serializer.data, status=status.HTTP_201_CREATED)
-        
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
