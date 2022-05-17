@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
+		"_postman_id": "96ad4408-962e-47ea-9ab0-f6e7b2735320",
 		"name": "DRF_JWT_Backend",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -49,7 +49,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\": \"dantheman\",\r\n    \"password\": \"password1@\"\r\n}",
+							"raw": "{\r\n    \"username\": \"lrc93\",\r\n    \"password\": \"MyPassword123\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -219,6 +219,108 @@
 								""
 							]
 						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "Get_All_Comments_By_Video_Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Post_Comment",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\"user\": {\r\n            \"id\": 2,\r\n            \"password\": \"root\",\r\n            \"last_login\": null,\r\n            \"is_superuser\": false,\r\n            \"username\": \"lrc93\",\r\n            \"first_name\": \"Leah\",\r\n            \"last_name\": \"Cole\",\r\n            \"email\": \"abc123@gmail.com\",\r\n            \"is_staff\": false,\r\n            \"is_active\": true,\r\n            \"date_joined\": \"2022-05-12T22:16:07Z\",\r\n            \"groups\": [],\r\n            \"user_permissions\": []\r\n        },\r\n        \"video_id\": 1,\r\n        \"text\": \"Second\",\r\n        \"likes\": 500,\r\n        \"dislikes\": 0\r\n    },",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update_Comment",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n    {\r\n        \"id\": 4,\r\n        \"user\": {\r\n            \"id\": 4,\r\n            \"password\": \"MyPassword\",\r\n            \"last_login\": null,\r\n            \"is_superuser\": false,\r\n            \"username\": \"asc92\",\r\n            \"first_name\": \"Andrew\",\r\n            \"last_name\": \"Cole\",\r\n            \"email\": \"abc123@gmail.com\",\r\n            \"is_staff\": false,\r\n            \"is_active\": true,\r\n            \"date_joined\": \"2022-05-13T18:35:58Z\",\r\n            \"groups\": [],\r\n            \"user_permissions\": []\r\n        },\r\n        \"video_id\": 1,\r\n        \"text\": \"I commented first!\",\r\n        \"likes\": 10000,\r\n        \"dislikes\": 0\r\n    }\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/comments/1/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"comments",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Replies",
+			"item": [
+				{
+					"name": "Get_Replies",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Post_Reply",
+					"request": {
+						"method": "POST",
+						"header": []
 					},
 					"response": []
 				}

@@ -10,20 +10,24 @@ import RegisterPage from "./pages/RegisterPage/RegisterPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
+import SearchBar from './components/SearchBar/SearchBar'
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
+
   return (
     <div>
       <Navbar />
+      <SearchBar/>
       <Routes>
         <Route
           path="/"
           element={
             <PrivateRoute>
               <HomePage />
+            
             </PrivateRoute>
           }
         />
@@ -36,3 +40,4 @@ function App() {
 }
 
 export default App;
+// AIzaSyC9w1EFmMlW79g-oD-o7j06Hm-xiqOEBkM
