@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
 import axios from "axios";
+import VideoSearch from "../../components/SerachBar/SearchBar";
 
 const HomePage = () => {
   // The "user" value from this Hook contains the decoded logged in user information (username, first name, id)
@@ -40,3 +41,5 @@ const HomePage = () => {
 };
 
 export default HomePage;
+
+
