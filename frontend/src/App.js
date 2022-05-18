@@ -17,6 +17,7 @@ import SearchBar from './components/SearchBar/SearchBar'
 import PrivateRoute from "./utils/PrivateRoute";
 import { useState, useEffect } from "react";
 import axios from "axios";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 
 function App(props) {
   useEffect(() => {
@@ -44,6 +45,7 @@ function App(props) {
           element={
             <PrivateRoute>
               <HomePage />
+              <VideoPlayer/>
             
             
             </PrivateRoute>
