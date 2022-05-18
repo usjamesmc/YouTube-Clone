@@ -1,9 +1,6 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import axios from 'axios';
-import React, { useState } from 'react';
-
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -47,6 +44,7 @@ function App(props) {
             <PrivateRoute>
               <HomePage />
             
+            
             </PrivateRoute>
           }
         />
@@ -58,13 +56,8 @@ function App(props) {
       <Footer />
     </div>
   );
- }
+}
 
-<<<<<<< HEAD
-
-export default App;
-=======
 export default App;
 // AIzaSyC9w1EFmMlW79g-oD-o7j06Hm-xiqOEBkM
 // https://www.googleapis.com/youtube/v3/search?q={SEARCH QUERY HERE}&key={API KEY HERE}
->>>>>>> 62fb1a47d72a60cf16a53f8959108594dcf60f8a
