@@ -15,11 +15,25 @@ import SearchBar from './components/SearchBar/SearchBar';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
+import VideoPlayer from "./components/VideoPlayer/VideoPlayer";
 
 function App(props) {
-  
+  useEffect(() => {
+    getAllVideos(); 
+    }, [])
+
+    async function getAllVideos(){
+        try{
+            let response = await axios.get('');
+            console.log(response.data);
+
+        } catch (ex) {
+            console.log('error');
+        }    
+    }
+
   return (
     <div>
       <Navbar />
@@ -29,6 +43,7 @@ function App(props) {
           element={
             <PrivateRoute>
               <HomePage />
+              <VideoPlayer/>
               <SearchBar/>
             </PrivateRoute>
           }
