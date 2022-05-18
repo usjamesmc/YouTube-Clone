@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 
 const VideoSearch = (props) => {
@@ -16,6 +17,7 @@ const VideoSearch = (props) => {
             </div>
             <div>
                 <button type='submit'>Search</button>
+                <Link to="/search">Click to register!</Link>
             </div>
             </form>
         </div>
