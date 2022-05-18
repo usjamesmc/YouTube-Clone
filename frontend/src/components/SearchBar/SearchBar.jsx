@@ -1,16 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import useCustomForm from "../../hooks/useCustomForm";
-import { useNavigate, Link } from "react-router-dom";
 
 
 
+const SearchBar = () => {
 
-const VideoSearch = (props) => {
-
-    const [search, setSearch] = useState('');
-    const [formData, handleInputChange, handleSubmit] = useCustomForm()
-    const navigate = useNavigate();
-   
+    
     return(
         <div className="container">
             <form className="form" onSubmit={handleSubmit}>
@@ -18,14 +13,13 @@ const VideoSearch = (props) => {
                 Search{" "}
                 <input
                     type="text"
-                    name="username"
-                    value={formData.username}
+                    value={formData.videoSearch}
                     onChange={handleInputChange}
                 />
                 </label>
-                <button onClick={() => navigate("/search")}>Search</button>
+                <button onClick={filterVideos()}>Search</button>
             </form>
         </div>
     );
 }
-export default VideoSearch;
+export default SearchBar;

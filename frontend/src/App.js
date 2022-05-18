@@ -11,40 +11,25 @@ import VideoPage from "./pages/VideoPage/VideoPage";
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
 import Footer from "./components/Footer/Footer";
-import SearchBar from './components/SearchBar/SearchBar'
+import SearchBar from './components/SearchBar/SearchBar';
 
 // Util Imports
 import PrivateRoute from "./utils/PrivateRoute";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 
 function App(props) {
-  useEffect(() => {
-    getAllVideos(); 
-    }, [])
-          
-    async function getAllVideos(){
-        try{
-            let response = await axios.get('');
-            console.log(response.data);
-        
-        } catch (ex) {
-            console.log('error');
-        }    
-    }
   
   return (
     <div>
       <Navbar />
-      
-      <SearchBar/>
       <Routes>
         <Route
           path="/"
           element={
             <PrivateRoute>
               <HomePage />
-            
+              <SearchBar/>
             </PrivateRoute>
           }
         />
